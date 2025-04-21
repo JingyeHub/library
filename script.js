@@ -20,13 +20,18 @@ const submitButton = document.querySelector("[data-submit-button]");
 
 submitButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const title = document.querySelector("[data-title-input]").value;
-    const author = document.querySelector("[data-author-input]").value;
-    const pages = document.querySelector("[data-pages-input]").value;
-    const read = document.querySelector("[data-read-input]").value === "on" ? "True" : "False";
+    let title = document.querySelector("[data-title-input]").value;
+    let author = document.querySelector("[data-author-input]").value;
+    let pages = document.querySelector("[data-pages-input]").value;
+    let read = document.querySelector("[data-read-input]").checked === false ? "False" : "True";
 
     addBookToLibrary(title, author, pages, read);
+    updateBookContainer();
     modal.close();
+    title = "";
+    author = "";
+    pages = "";
+    read = "";
 })
 
 const myLibrary = [
@@ -44,4 +49,28 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
+}
+
+function updateBookContainer() {
+    const bookContainer = document.querySelector("#book-container");
+    bookContainer.innerHTML = "";
+    myLibrary.forEach(book => {
+        const div = document.createElement("div");
+        div.setAttribute("class", "book");
+        div.innerHTML = `
+            <h3>${book.title}</h3>
+            <p>${book.author}</p>
+            <p>${book.pages}</p>
+            <p>${book.read}</p>
+            `;
+        const deleteButton = document.createElement("button");
+        deleteButton.innerText = "X";
+        deleteButton.setAttribute("class", "delete-button");
+        div.appendChild(deleteButton);
+        bookContainer.appendChild(div);
+
+        deleteButton.addEventListener("click", (e) => {
+            e.target.parentNode.remove();
+        })
+    })
 }
