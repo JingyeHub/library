@@ -1,0 +1,34 @@
+#logo {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+#add-button {
+    border: 0;
+    background-color: rgba(0, 255, 0, 0.3);
+    font-size: 2rem;
+}
+
+#add-button:hover {
+    cursor: pointer;
+    background-color: rgb(31, 201, 31);
+    color: white;
+}
+
+#book-container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(5, 100px);
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+    gap: 10px;
+}
