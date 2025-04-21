@@ -17,3 +17,20 @@ modal.addEventListener("click", e => {
     }
 })
 const submitButton = document.querySelector("[data-submit-button]");
+
+const myLibrary = [
+    { title: "Learning how to learn", author: "Jay Zhang", pages: 200, read: "True" },
+];
+
+function Book(title, author, pages, read) {
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+}
+
+function addBookToLibrary(title, author, pages, read) {
+    const newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+}
