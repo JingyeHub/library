@@ -5,7 +5,7 @@ addButton.addEventListener("click", () => {
     modal.showModal();
 })
 
-modal.addEventListener("click", e => {
+modal.addEventListener("click", (e) => {
     const modalDimensions = modal.getBoundingClientRect();
     if (
         e.clientX < modalDimensions.left ||
@@ -17,6 +17,17 @@ modal.addEventListener("click", e => {
     }
 })
 const submitButton = document.querySelector("[data-submit-button]");
+
+submitButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const title = document.querySelector("[data-title-input]").value;
+    const author = document.querySelector("[data-author-input]").value;
+    const pages = document.querySelector("[data-pages-input]").value;
+    const read = document.querySelector("[data-read-input]").value === "on" ? "True" : "False";
+
+    addBookToLibrary(title, author, pages, read);
+    modal.close();
+})
 
 const myLibrary = [
     { title: "Learning how to learn", author: "Jay Zhang", pages: 200, read: "True" },
