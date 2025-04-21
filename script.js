@@ -19,11 +19,17 @@ modal.addEventListener("click", (e) => {
 const submitButton = document.querySelector("[data-submit-button]");
 
 submitButton.addEventListener("click", (e) => {
+    if (
+        document.querySelector("[data-title-input]").value === "" ||
+        document.querySelector("[data-author-input]").value === "" ||
+        document.querySelector("[data-pages-input]").value === ""
+    ) return;
+
     e.preventDefault();
     let title = document.querySelector("[data-title-input]").value;
     let author = document.querySelector("[data-author-input]").value;
     let pages = document.querySelector("[data-pages-input]").value;
-    let read = document.querySelector("[data-read-input]").checked === false ? "False" : "True";
+    let read = document.querySelector("[data-read-input]").checked === false ? "Not read" : "Finished";
 
     addBookToLibrary(title, author, pages, read);
     updateBookContainer();
