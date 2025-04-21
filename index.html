@@ -11,6 +11,30 @@
 
 <body>
     <h1>Library</h1>
+    <button id="add-button" data-add-button>Add</button>
+    <dialog open>
+        <form action="index.html" method="dialog">
+            <div>
+                <lablel for="title">Title: </lablel>
+                <input type="text" id="title" name="title" data-title-input>
+            </div>
+            <div>
+                <lablel for="author">Author: </lablel>
+                <input type="text" id="author" name="author" data-author-input>
+            </div>
+            <div>
+                <lablel for="pages">Pages: </lablel>
+                <input type="text" id="pages" name="pages" data-pages-input>
+            </div>
+            <div>
+                <lablel for="read">This book has been read? </lablel>
+                <input type="checkbox" id="read" name="read" data-read-input>
+            </div>
+            <div>
+                <button id="submit-button" data-submit-button>Submit</button>
+            </div>
+        </form>
+    </dialog>
     <div id="book-container">
 
     </div>
