@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #2A7B9B;
+    background: linear-gradient(58deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 49%, rgba(156, 204, 90, 0.87) 100%);
+}
+
 #logo {
     margin: auto;
     display: flex;
@@ -62,5 +67,24 @@ p {
 }
 
 .book button:hover {
+    color: red;
     cursor: pointer;
+}
+
+form {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form div {
+    flex-grow: 1;
+    display: flex;
+    gap: 5px;
+}
+
+form div input {
+    flex-grow: 1;
 }
