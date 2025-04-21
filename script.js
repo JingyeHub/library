@@ -34,9 +34,7 @@ submitButton.addEventListener("click", (e) => {
     read = "";
 })
 
-const myLibrary = [
-    { title: "Learning how to learn", author: "Jay Zhang", pages: 200, read: "True" },
-];
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.id = crypto.randomUUID();
@@ -53,7 +51,12 @@ function addBookToLibrary(title, author, pages, read) {
 
 function updateBookContainer() {
     const bookContainer = document.querySelector("#book-container");
-    bookContainer.innerHTML = "";
+    bookContainer.innerHTML = `
+    <div class="book"><h3>Learning how to learn</h3>
+    <p>Jay Zhang</p>
+    <p>200</p>
+    <p>True</p>
+    <div>`;
     myLibrary.forEach(book => {
         const div = document.createElement("div");
         div.setAttribute("class", "book");
