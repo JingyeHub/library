@@ -51,12 +51,7 @@ function addBookToLibrary(title, author, pages, read) {
 
 function updateBookContainer() {
     const bookContainer = document.querySelector("#book-container");
-    bookContainer.innerHTML = `
-    <div class="book"><h3>Learning how to learn</h3>
-    <p>Jay Zhang</p>
-    <p>200</p>
-    <p>True</p>
-    <div>`;
+    bookContainer.innerHTML = "";
     myLibrary.forEach(book => {
         const div = document.createElement("div");
         div.setAttribute("class", "book");
@@ -64,8 +59,7 @@ function updateBookContainer() {
             <h3>${book.title}</h3>
             <p>${book.author}</p>
             <p>${book.pages}</p>
-            <p>${book.read}</p>
-            `;
+            <p>${book.read}</p>`;
         const deleteButton = document.createElement("button");
         deleteButton.innerText = "X";
         deleteButton.setAttribute("class", "delete-button");
