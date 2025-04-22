@@ -34,8 +34,8 @@ h1 {
 #book-container {
     margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(5, 200px);
-    grid-template-rows: repeat(5, 200px);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
     justify-content: center;
     justify-items: center;
     align-content: stretch;
@@ -51,6 +51,12 @@ h1 {
     align-items: center;
     background-color: rgba(236, 232, 232, 0.402);
     border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.book:hover {
+    transform: translateY(-5px);
 }
 
 .book h3,
@@ -73,7 +79,6 @@ p {
 
 form {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     flex-direction: column;
     gap: 10px;
@@ -87,4 +92,39 @@ form div {
 
 form div input {
     flex-grow: 1;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.toggle-read,
+.delete-button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.toggle-read {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.toggle-read:hover {
+    background-color: #45a049;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
 }
